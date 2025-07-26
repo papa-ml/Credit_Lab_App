@@ -31,6 +31,12 @@ def normalize_date_string(x):
 
     return None  # For anything else
 
+
+
+
+
+
+
 def preprocess_inputs_lgd(df, reference_date):
     df_copy = df.copy()
 
