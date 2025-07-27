@@ -9,13 +9,16 @@ from joblib import load
 from functions import select_model_variables, preprocess_inputs_pd, preprocess_inputs_lgd
 
 # Import Models
-from model import reg_lgd_st_1, reg_lgd_st_2
+from model import train_models_if_needed
+#"""reg_lgd_st_1, reg_lgd_st_2"""
 
 # Import Variables
 from model_training_variables import pd_variable_list, pd_ref_categories, reference_date, lgd_features_all, lgd_features_reference_cat
 
 # Import Scorecard Data Frame
 from model import df_scorecard
+
+train_models_if_needed()
 
 @st.cache_resource(show_spinner="Loading PD model...")
 def load_pd_model():
