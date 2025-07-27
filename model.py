@@ -72,7 +72,7 @@ def train_models_if_needed():
     df_scorecard['Score - Calculation'][0] = ((df_scorecard['Coefficients'][0] - min_sum_coef) / (max_sum_coef - min_sum_coef)) * (max_score - min_score) + min_score
     df_scorecard['Score - Preliminary'] = df_scorecard['Score - Calculation'].round()
     df_scorecard = adjust_scorecard(df_scorecard)
-
+    df_scorecard.to_csv("df_scorecard.csv", index=False)
 
     # !!!!Producing LGD Model
     # Stage 1

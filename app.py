@@ -15,9 +15,6 @@ from model import train_models_if_needed
 # Import Variables
 from model_training_variables import pd_variable_list, pd_ref_categories, reference_date, lgd_features_all, lgd_features_reference_cat
 
-# Import Scorecard Data Frame
-from model import df_scorecard
-
 train_models_if_needed()
 
 @st.cache_resource(show_spinner="Loading PD model...")
@@ -60,6 +57,7 @@ if __name__ == '__main__':
             st.session_state.upload = upload
 
             upload_pd = preprocess_inputs_pd(upload, reference_date)
+            df_scorecard = pd.read_csv("df_scorecard.csv")
 
             # Produces credit scores for the portfolio
             user_input_with_ref_cat = select_model_variables(upload_pd, pd_variable_list) #This will the input file from the user
